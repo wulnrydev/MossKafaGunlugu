@@ -1,0 +1,78 @@
+# ==========================================================================
+#  MossKafaGunlugu - Developed by wulnrydev
+#  1.20+ Highly Optimized Seasonal Head Journal Plugin
+# --------------------------------------------------------------------------
+#  Renk Kodlari:
+#    - Standart kodlar:  &7 &8 &a ... (&l kalin, &o italik vb.)
+#    - Hex renkleri:     &#RRGGBB  (orn: &#00D420)
+#  Placeholderlar GUI ve mesajlarda otomatik degistirilir.
+# ==========================================================================
+
+settings:
+  # GUI yuva sayisi 9'un kati olmalidir (18, 27, 36, 45, 54). En az 18 olmalidir.
+  gui-size: 54
+  # Geri butonuna basildiginda calistirilacak komut (bassiz, "/" olmadan).
+  command-on-back: "menü"
+
+database:
+  # SQLITE veya MYSQL
+  type: SQLITE
+  # SQLITE icin dosya adi (plugin klasoru altinda olusturulur).
+  sqlite-file: "data.db"
+  # Asenkron veri tabani islemleri icin thread havuzu boyutu.
+  pool-size: 6
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "mosskafagunlugu"
+    username: "root"
+    password: ""
+    use-ssl: false
+
+messages:
+  prefix: "&#15FF08&lSkyBlock &8▸ "
+  no-permission: "%prefix%&7Bu komutu kullanmak için &#ffd500yetkiniz &7bulunmuyor."
+  reload: "%prefix%&7Eklenti yapılandırması başarıyla &#00D420yenilendi&7."
+  reset: "%prefix%&7Sezon başarıyla &#00D420sıfırlandı&7. Yeni sezon: &#ffd500%season%"
+  players-only: "%prefix%&7Bu komut yalnızca oyuncular tarafından kullanılabilir."
+  no-kills: "%prefix%&7Bu sezonda henüz kimseyi mağlup etmedin."
+  opening: "%prefix%&7Kafa günlüğün &#00D420açılıyor&7..."
+
+gui:
+  title: "&0[Kafa Günlüğü&8] &0- Sayfa: &a%page%"
+  head-format:
+    display-name: "&#00D420%player_name%"
+    lore:
+      - "&7────────────────────────"
+      - "&7Öldürülme Sayısı: &#ffd500%kill_count%"
+      - "&7İlk Avlanma: &7%first_kill_date%"
+      - "&7Son Avlanma: &7%last_kill_date%"
+      - "&7────────────────────────"
+  buttons:
+    back:
+      material: ARROW
+      slot: 45
+      display-name: "&#ffd500Ana Menüye Dön"
+      lore:
+        - "&7Tıklayarak ana kontrol"
+        - "&7paneline geri dönebilirsin."
+    next-page:
+      material: PLAYER_HEAD
+      slot: 53
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTliZjMyOTJlMTI2YTEwNWI1NGViYTcxM2FhMWIxNTJkNTQxYTFkODkzODgyOWM1NjM2NGQxNzhlZDIyYmYifX19"
+      display-name: "&#00D420Sonraki Sayfa"
+      lore:
+        - "&7Sonraki sayfaya geçmek için tıkla."
+    previous-page:
+      material: PLAYER_HEAD
+      slot: 46
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ=="
+      display-name: "&#00D420Önceki Sayfa"
+      lore:
+        - "&7Önceki sayfaya dönmek için tıkla."
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+
+# Tarih formati (Java DateTimeFormatter).
+date-format: "dd.MM.yyyy HH:mm"

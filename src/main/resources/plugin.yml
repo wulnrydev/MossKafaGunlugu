@@ -1,0 +1,29 @@
+name: MossKafaGunlugu
+version: ${project.version}
+main: dev.wulnrydev.mosskafagunlugu.MossKafaGunlugu
+api-version: '1.20'
+author: wulnrydev
+description: 1.20+ Highly Optimized Seasonal Head Journal Plugin
+
+# Downloaded by Paper's library loader at startup (no shading required).
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - org.xerial:sqlite-jdbc:3.45.3.0
+  - com.mysql:mysql-connector-j:8.3.0
+
+commands:
+  kafagunlugu:
+    description: Sezonluk kafa gunlugunu acar.
+    usage: /kafagunlugu [reload|reset]
+    aliases:
+      - "kafagünlüğü"
+      - kafagunlugu
+      - kg
+
+permissions:
+  mosskafagunlugu.use:
+    description: Kafa gunlugu menusunu acmaya izin verir.
+    default: true
+  mosskafagunlugu.admin:
+    description: Yonetici komutlarina (reload/reset) izin verir.
+    default: op
